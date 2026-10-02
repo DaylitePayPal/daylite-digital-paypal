@@ -1,27 +1,26 @@
-Daylite Digital + Daylite Ambassador Programme
-
-Built in Africa for international markets.
+# Daylite Digital + Daylite Ambassador Programme
 
 A Southern Cross Stars Investments digital-commerce build demonstrating how payment infrastructure, AI and human commercial participation can be connected through an African travel and accommodation ecosystem.
 
-About
+## About
 
-Southern Cross Stars Investments, a member of Southern Cross Stars Group, is developing digital business solutions designed to connect African commercial activity with international digital markets.
+Southern Cross Stars Investments, a member of Southern Cross Stars Group, develops digital business solutions for commercial participation in the digital economy.
 
 Daylite Digital is the concrete commercial system used in this build.
 
-The wider issue is not limited to tourism. Africans participate in the digital economy as entrepreneurs, creators, service providers, tourism businesses, accommodation providers and other commercial participants. Access to reliable digital-commerce and payment infrastructure can affect whether that economic activity can participate effectively in international markets.
+The wider issue is not limited to tourism. Africans participate in the digital economy as entrepreneurs, creators, service providers, tourism businesses, accommodation providers and other commercial participants. Access to reliable digital-commerce and payment infrastructure can affect whether that economic activity can participate effectively in digital commerce.
 
 Daylite provides one practical example of that problem.
 
-The Daylite ecosystem
-Daylite Digital
+## The Daylite ecosystem
+
+### Daylite Digital
 
 Daylite Digital is the travel and accommodation commerce layer.
 
-It is designed to connect customers, accommodation providers and digital commerce through an international-facing marketplace.
+It is designed to connect customers, accommodation providers and digital commerce through a travel and accommodation marketplace.
 
-Daylite Ambassador Programme
+### Daylite Ambassador Programme
 
 The Daylite Ambassador Programme is the human participation and commercial distribution layer.
 
@@ -29,17 +28,17 @@ Daylite Ambassadors can promote qualifying accommodation opportunities and parti
 
 The programme's commission structure can reach 6.5%, subject to programme rules and successful qualifying transactions.
 
-Daylite Accommodation Provider
+### Daylite Accommodation Provider
 
 The Daylite Accommodation Provider service provides a participation pathway for accommodation businesses entering the Daylite marketplace.
 
-Daylite Ambassador Hub
+### Daylite Ambassador Hub
 
 The Daylite Ambassador Hub is the structured environment for developing, supporting and coordinating Daylite Ambassadors.
 
 These components are distinct but connected.
 
-Why PayPal?
+## Why PayPal?
 
 International payment infrastructure is a critical part of digital commerce.
 
@@ -47,17 +46,21 @@ This build investigates how PayPal developer technology can be incorporated into
 
 PayPal's current developer documentation illustrates an important distinction:
 
-South Africa is listed by PayPal's seller-onboarding documentation with receiving capabilities.
-Namibia is listed as Send only in that same seller-onboarding documentation.
-PayPal's REST API country-code documentation separately lists both South Africa (ZA) and Namibia (NA) among countries supported by its APIs.
+* South Africa is listed by PayPal's seller-onboarding documentation with receiving capabilities.
+* Namibia is listed as Send only in that same seller-onboarding documentation.
+* PayPal's REST API country-code documentation separately lists both South Africa (ZA) and Namibia (NA) among countries supported by its APIs.
 
 This means that API availability and merchant/payment capabilities should not be assumed to be identical across countries.
 
-Sources:
+### Sources
 
-PayPal Developer — Seller onboarding: https://developer.paypal.com/platforms/seller-onboarding/
-PayPal Developer — Country codes: https://developer.paypal.com/api/codes/country-region/
-The real-world payment-access case study
+PayPal Developer — Seller onboarding:
+https://developer.paypal.com/platforms/seller-onboarding/
+
+PayPal Developer — Country codes:
+https://developer.paypal.com/api/codes/country-region/
+
+## The real-world payment-access case study
 
 This repository also documents a real payment-access problem encountered while developing Daylite.
 
@@ -69,40 +72,43 @@ During the account experience, PayPal communicated to the account holder that ac
 
 The subsequent permanent deactivation notice stated that PayPal was no longer offering services for the account and cited “unusual activity” as the reason.
 
-This repository does not claim that physical location was formally determined by PayPal to be the sole cause of the deactivation. Instead, the repository separates:
+This repository does not claim that physical location was formally determined by PayPal to be the sole cause of the deactivation.
 
-what the account holder was told;
-what PayPal's final notice stated;
-the documented country-level payment capability differences; and
-the technical questions that developers need to solve.
+Instead, the repository separates:
+
+* what the account holder was told;
+* what PayPal's final notice stated;
+* the documented country-level payment capability differences; and
+* the technical questions that developers need to solve.
 
 The objective is not to circumvent PayPal controls.
 
-The objective is to understand how legitimate African businesses can build compliant international-commerce systems when business registration, banking, physical development location and payment-provider country capabilities do not necessarily align.
+The objective is to understand how legitimate African businesses can build compliant digital-commerce systems when business registration, banking, physical development location and payment-provider country capabilities do not necessarily align.
 
-What this competition build demonstrates
+## What this competition build demonstrates
 
 The application is designed to demonstrate:
 
-African travel and accommodation commerce;
-human commercial distribution through the Daylite Ambassador Programme;
-payment-provider integration architecture;
-PayPal developer tooling and testing;
-AI-assisted functionality;
-separation of production payment credentials from development/testing;
-country-aware payment capability analysis;
-transparent documentation of payment-access constraints.
-PayPal implementation
+* African travel and accommodation commerce;
+* human commercial distribution through the Daylite Ambassador Programme;
+* payment-provider integration architecture;
+* PayPal developer tooling and testing;
+* AI-assisted functionality;
+* separation of production payment credentials from development/testing;
+* country-aware payment capability analysis; and
+* transparent documentation of payment-access constraints.
 
-The repository will clearly distinguish between:
+## PayPal implementation
 
-Production account experience
+The repository will clearly distinguish between the production account experience and the development/testing environment.
+
+### Production account experience
 
 The real-world account described in the case study is documented as evidence of the payment-access problem.
 
 No private account credentials, banking information, personal addresses, passwords or authentication secrets are included in this repository.
 
-Development and testing
+### Development and testing
 
 PayPal Sandbox and/or other official PayPal developer tooling will be used for technical testing where applicable.
 
@@ -112,47 +118,50 @@ Environment variables should be used for secrets.
 
 Example:
 
+```env
 PAYPAL_CLIENT_ID=
 PAYPAL_CLIENT_SECRET=
 PAYPAL_ENVIRONMENT=sandbox
+```
 
 Never place real credentials inside source code.
 
-AI
+## AI
 
 AI is treated as a functional component of the application rather than simply a marketing claim.
 
 The AI layer will be documented with:
 
-the model/service used;
-the purpose of the AI component;
-the inputs provided to the model;
-the outputs produced;
-how the output is used by the application;
-limitations and safeguards.
+* the model/service used;
+* the purpose of the AI component;
+* the inputs provided to the model;
+* the outputs produced;
+* how the output is used by the application; and
+* limitations and safeguards.
 
 The final repository will identify the exact AI technology used rather than claiming integrations that were not actually implemented.
 
-Technology
+## Technology
 
 The implementation will document the actual technologies used in the final build.
 
 The initial application layer is a lightweight web interface using:
 
-HTML
-CSS
-JavaScript
-GitHub
-PayPal developer tooling
-PayPal Sandbox where applicable
-AI tooling/services actually used in the final implementation
+* HTML
+* CSS
+* JavaScript
+* GitHub
+* PayPal developer tooling
+* PayPal Sandbox where applicable
+* AI tooling/services actually used in the final implementation
 
 Additional sponsor integrations will only be listed if they are genuinely implemented and testable.
 
-Repository structure
+## Repository structure
 
 The repository is being developed around the following logical components:
 
+```text
 daylite-digital-paypal/
 │
 ├── index.html
@@ -168,90 +177,96 @@ daylite-digital-paypal/
 ├── ai/
 │
 └── docs/
+```
 
 The structure may evolve as implementation progresses.
 
-Setup
-Requirements
+## Setup Requirements
 
 A modern web browser is sufficient to view the initial frontend.
 
 For the full PayPal/AI development environment, the required runtime, dependencies and environment variables will be documented here as those components are implemented.
 
-Basic frontend
+### Basic frontend
 
 Clone the repository:
 
+```bash
 git clone https://github.com/DaylitePayPal/daylite-digital-paypal.git
+```
 
 Enter the directory:
 
+```bash
 cd daylite-digital-paypal
+```
 
 Open:
 
+```text
 index.html
+```
 
 in a modern browser.
 
-Security
+## Security
 
 Do not commit:
 
-PayPal client secrets;
-API keys;
-access tokens;
-passwords;
-private banking information;
-personal identity documents;
-private customer information.
+* PayPal client secrets;
+* API keys;
+* access tokens;
+* passwords;
+* private banking information;
+* personal identity documents; or
+* private customer information.
 
 Use environment variables for credentials.
 
 Example:
 
+```text
 .env
+```
 
 must remain excluded from version control when it contains secrets.
 
-Competition purpose
+## Competition purpose
 
 This repository is the public technical record for the PayPal AI Hackathon submission.
 
 It is intended to allow judges to:
 
-inspect the source;
-understand the architecture;
-understand how PayPal is used;
-understand how AI is used;
-reproduce the development/test environment where applicable;
-understand the real-world payment-access problem that motivated part of the build.
+* inspect the source;
+* understand the architecture;
+* understand how PayPal is used;
+* understand how AI is used;
+* reproduce the development/test environment where applicable; and
+* understand the real-world payment-access problem that motivated part of the build.
 
 The repository will continue to be updated as the implementation develops.
 
-Identity
+## Identity
 
-Southern Cross Stars Investments
+**Southern Cross Stars Investments**
 Member of Southern Cross Stars Group
 
-Daylite Digital
+**Daylite Digital**
 Travel and accommodation commerce platform
 
-Daylite Ambassador Programme
+**Daylite Ambassador Programme**
 Human participation and commercial distribution layer
 
-Daylite Ambassador Hub
+**Daylite Ambassador Hub**
 Ambassador development and support environment
 
-Daylite Accommodation Provider
+**Daylite Accommodation Provider**
 Accommodation-provider participation service
 
-Geographic identity
+### Geographic identity
 
-Made in Africa, a proudly Namibian service.
+**Made in Africa, a proudly Namibian service.**
 
-License
+## License
 
-This repository will use an OSI-approved open-source license appropriate to the competition requirements.
-
-The final license will be added to the repository before submission.
+This repository is licensed under the **MIT License**.
