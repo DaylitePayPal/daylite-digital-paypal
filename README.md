@@ -250,10 +250,6 @@ Geographic identity
 
 Made in Africa, a proudly Namibian service.
 
-International ambition
-
-Built in Africa for international markets.
-
 License
 
 This repository will use an OSI-approved open-source license appropriate to the competition requirements.
