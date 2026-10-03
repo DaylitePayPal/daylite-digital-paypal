@@ -1,0 +1,19 @@
+{
+  "name": "daylite-digital-paypal-hackathon",
+  "version": "1.0.0",
+  "description": "Daylite Digital: AI discovery (Google Gemini) to PayPal Sandbox checkout demonstration for the PayPal AI Hackathon 2026.",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

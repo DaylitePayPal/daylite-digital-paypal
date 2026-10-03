@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daylite Digital — AI discovery to PayPal Sandbox checkout (demonstration)</title>
+  <meta name="description" content="Daylite Digital demonstration for the PayPal AI Hackathon 2026: describe a trip, get Gemini recommendations from a demonstration catalogue, and pay through PayPal Sandbox.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="demo-banner" role="note">
+    <strong>Demonstration only.</strong>
+    Demonstration catalogue &middot; PayPal <em>Sandbox</em> &middot; no live inventory &middot; no real reservations &middot; no production payment processing.
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Southern Cross Stars Group</p>
+      <h1>Daylite <span>Digital</span></h1>
+      <p class="tagline">Made in Africa, a proudly Namibian service.</p>
+      <p class="lede">Describe the trip you have in mind. Gemini matches it to a controlled demonstration catalogue, and the server — not the AI, not the browser — sets the price for a PayPal Sandbox checkout.</p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <nav aria-label="Progress">
+      <ol class="stepper" id="stepper">
+        <li data-step="1" class="is-current" aria-current="step"><span class="n">1</span><span class="t">Discover</span></li>
+        <li data-step="2"><span class="n">2</span><span class="t">AI recommendation</span></li>
+        <li data-step="3"><span class="n">3</span><span class="t">Select</span></li>
+        <li data-step="4"><span class="n">4</span><span class="t">PayPal</span></li>
+        <li data-step="5"><span class="n">5</span><span class="t">Confirmation</span></li>
+      </ol>
+    </nav>
+
+    <div id="config-warning" class="notice notice-warn" hidden></div>
+    <div id="live-region" class="sr-only" role="status" aria-live="polite"></div>
+
+    <!-- Step 1 -->
+    <section id="step-1" class="panel" aria-labelledby="h-1">
+      <h2 id="h-1">1 &middot; Discover</h2>
+      <form id="discover-form" novalidate>
+        <label for="query">What kind of travel experience do you want?</label>
+        <textarea id="query" name="query" rows="3" maxlength="500" required placeholder="e.g. I want a coastal experience and only have two days."></textarea>
+        <div class="row between">
+          <span class="hint" id="query-count">0 / 500</span>
+          <button type="submit" class="btn btn-primary" id="discover-btn">Ask Gemini</button>
+        </div>
+        <p class="hint">Try an example:</p>
+        <div class="chips" id="examples">
+          <button type="button" class="chip">I want a cultural experience in Osaka.</button>
+          <button type="button" class="chip">I want a coastal experience and only have two days.</button>
+          <button type="button" class="chip">Something adventurous in the desert with great photography.</button>
+        </div>
+      </form>
+      <p id="discover-error" class="notice notice-error" role="alert" hidden></p>
+    </section>
+
+    <!-- Step 2 + 3 -->
+    <section id="step-2" class="panel" aria-labelledby="h-2" hidden>
+      <h2 id="h-2">2 &middot; AI recommendation</h2>
+      <p class="hint" id="rec-meta"></p>
+      <div id="rec-list" class="cards"></div>
+      <p id="rec-empty" class="notice" hidden>No demonstration experience matched. Try describing the place, mood or length of trip in a different way.</p>
+      <button type="button" class="btn btn-ghost" id="back-to-1">Change my request</button>
+    </section>
+
+    <section id="step-3" class="panel" aria-labelledby="h-3" hidden>
+      <h2 id="h-3">3 &middot; Select</h2>
+      <div class="selected" id="selected-summary"></div>
+      <div class="row">
+        <label for="travellers">Travellers</label>
+        <input type="number" id="travellers" name="travellers" min="1" max="10" step="1" value="1" inputmode="numeric">
+        <span class="hint">1&ndash;10</span>
+      </div>
+      <p class="total">Demonstration total: <strong id="total-amount">—</strong>
+        <span class="hint">(calculated again on the server when you continue)</span></p>
+      <p id="select-error" class="notice notice-error" role="alert" hidden></p>
+      <div class="row">
+        <button type="button" class="btn btn-primary" id="to-paypal">Continue to PayPal Sandbox</button>
+        <button type="button" class="btn btn-ghost" id="back-to-2">Back to recommendations</button>
+      </div>
+    </section>
+
+    <!-- Step 4 -->
+    <section id="step-4" class="panel" aria-labelledby="h-4" hidden>
+      <h2 id="h-4">4 &middot; PayPal Sandbox</h2>
+      <dl class="summary" id="order-summary"></dl>
+      <p class="notice">This is a <strong>Sandbox</strong> payment. Use a PayPal Sandbox <em>personal</em> test account to approve it. No real money moves.</p>
+      <div id="paypal-buttons" role="group" aria-label="PayPal payment buttons"></div>
+      <p id="paypal-status" class="hint" role="status"></p>
+      <p id="paypal-error" class="notice notice-error" role="alert" hidden></p>
+      <button type="button" class="btn btn-ghost" id="back-to-3">Back</button>
+    </section>
+
+    <!-- Step 5 -->
+    <section id="step-5" class="panel" aria-labelledby="h-5" hidden>
+      <h2 id="h-5" tabindex="-1">5 &middot; Confirmation</h2>
+      <p class="badge">Demonstration confirmation &mdash; Sandbox payment, not a real reservation</p>
+      <dl class="summary" id="confirmation"></dl>
+      <p class="hint" id="confirmation-notice"></p>
+      <button type="button" class="btn btn-primary" id="restart">Start again</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Daylite Digital</strong> is a digital business solution developed by Southern Cross Stars Investments CC, a member of Southern Cross Stars Group.</p>
+      <p>Built by a digital business solution developer &amp; entrepreneur.</p>
+      <p class="fine">PayPal AI Hackathon 2026 demonstration. Experiences are demonstration data. PayPal runs in Sandbox mode. There is no live inventory connection, no real reservation and no production payment processing. The catalogue lists Namibian destinations alongside destinations elsewhere, such as New York and Paris, only to show that one architecture can represent both; none of them is live inventory.</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

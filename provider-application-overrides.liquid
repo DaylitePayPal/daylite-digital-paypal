@@ -1,0 +1,43 @@
+<style>
+  quantity-input,
+  .quantity__input,
+  [class*="quantity-selector"],
+  .quantity-selector,
+  .quantity {
+    display: none !important;
+  }
+
+  .shopify-payment-button,
+  [data-shopify="payment-button"],
+  .dynamic-checkout,
+  [class*="dynamic-checkout"],
+  [class*="accelerated"],
+  .no-js-hidden {
+    display: none !important;
+  }
+
+  form[action*="/cart"] button[type="submit"],
+  button[name="add"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+</style>
+<script>
+  (function () {
+    function relabelBtn() {
+      var btn = document.querySelector(
+        'button[name="add"], form[action*="/cart"] button[type="submit"]'
+      );
+      if (btn) {
+        var span = btn.querySelector("span") || btn;
+        if (span.innerText.trim() !== "SEND APPLICATION NOW") {
+          span.innerText = "SEND APPLICATION NOW";
+        }
+      }
+    }
+    document.addEventListener("DOMContentLoaded", relabelBtn);
+    setTimeout(relabelBtn, 500);
+    setTimeout(relabelBtn, 1500);
+  })();
+</script>

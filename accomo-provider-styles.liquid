@@ -1,0 +1,72 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+.dds-acc{background:#F5F0E6;padding:60px 20px;font-family:Inter,sans-serif;color:#203227;}
+.dds-acc *{box-sizing:border-box;}
+.dds-wrap{max-width:1200px;margin:0 auto;}
+.dds-hero{background:#1a2e22;border-radius:24px;padding:70px 50px;text-align:center;color:#fff;margin-bottom:40px;}
+.dds-eyebrow{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#D4AF37;margin-bottom:20px;}
+.dds-hero h1{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;line-height:1.1;margin:0 0 8px;color:#fff;}
+.dds-hero-sub{font-size:15px;color:rgba(255,255,255,.65);margin:0 0 30px;letter-spacing:1px;}
+.dds-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:20px;}
+.dds-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:7px 16px;border-radius:30px;font-size:12px;color:rgba(255,255,255,.8);}
+.dds-section-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#203227;margin:0 0 20px;padding-bottom:12px;border-bottom:2px solid #D4AF37;}
+.dds-about{background:#fff;border-radius:20px;padding:40px;margin-bottom:35px;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.dds-about p{font-size:16px;line-height:1.8;color:#3a4a40;margin:0 0 15px;}
+.dds-about p:last-child{margin:0;}
+.dds-about strong{color:#203227;}
+.dds-dark{background:#203227;color:#fff;border-radius:20px;padding:40px;margin-bottom:35px;}
+.dds-dark .dds-section-title{color:#D4AF37;border-bottom-color:rgba(212,175,55,.3);}
+.dds-inc-list{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.dds-inc-list li{font-size:14px;color:rgba(255,255,255,.9);padding-left:20px;position:relative;line-height:1.5;}
+.dds-inc-list li:before{content:'✔';position:absolute;left:0;color:#D4AF37;font-size:12px;top:1px;}
+.dds-green{background:#2F4F3E;border-radius:20px;padding:40px;margin-bottom:35px;}
+.dds-green .dds-section-title{color:#D4AF37;border-bottom-color:rgba(212,175,55,.3);}
+.dds-hl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+.dds-hl-item{font-size:13px;color:rgba(255,255,255,.85);padding:8px 12px 8px 28px;position:relative;}
+.dds-hl-item:before{content:'→';position:absolute;left:10px;color:#D4AF37;}
+.dds-light{background:#fff;border-radius:20px;padding:40px;margin-bottom:35px;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.dds-stream{background:#F9F6EF;border-radius:16px;padding:28px 32px;margin-bottom:20px;border-left:4px solid #D4AF37;}
+.dds-stream h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#203227;margin:0 0 12px;}
+.dds-stream ul{list-style:none;padding:0;margin:0 0 12px;}
+.dds-stream ul li{font-size:14px;color:#3a4a40;padding:5px 0 5px 20px;position:relative;}
+.dds-stream ul li:before{content:'✔';position:absolute;left:0;color:#D4AF37;font-size:12px;top:6px;}
+.dds-stream p{font-size:14px;color:#5a6a60;margin:8px 0 0;}
+.dds-division-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:16px;}
+.dds-division-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px 20px;text-align:center;}
+.dds-div-icon{font-size:28px;margin-bottom:10px;}
+.dds-division-card h3{font-family:'Cormorant Garamond',serif;font-size:18px;color:#D4AF37;margin:0 0 6px;}
+.dds-division-card p{font-size:12px;color:rgba(255,255,255,.65);margin:0;}
+.dds-who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:10px;}
+.dds-who-card{background:#F9F6EF;border-radius:12px;padding:16px 20px;font-size:14px;color:#3a4a40;border-left:3px solid #D4AF37;}
+.dds-provides-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.dds-provides-list li{font-size:14px;color:#3a4a40;padding-left:20px;position:relative;}
+.dds-provides-list li:before{content:'✅';position:absolute;left:0;font-size:12px;top:2px;}
+.dds-steps{counter-reset:step;list-style:none;padding:0;margin:0;}
+.dds-steps li{counter-increment:step;font-size:15px;color:#3a4a40;padding:14px 0 14px 50px;position:relative;border-bottom:1px solid #f0ebe0;}
+.dds-steps li:last-child{border-bottom:none;}
+.dds-steps li:before{content:counter(step);position:absolute;left:0;top:10px;background:#D4AF37;color:#203227;font-weight:700;font-size:13px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.dds-terms-box{background:#F9F6EF;border-radius:16px;padding:30px 35px;margin-bottom:35px;}
+.dds-terms-box h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:#203227;margin:0 0 15px;}
+.dds-terms-box ul{list-style:none;padding:0;margin:0;}
+.dds-terms-box ul li{font-size:13px;color:#5a6a60;padding:6px 0 6px 18px;position:relative;border-bottom:1px solid #ede8dc;}
+.dds-terms-box ul li:last-child{border-bottom:none;}
+.dds-terms-box ul li:before{content:'—';position:absolute;left:0;color:#D4AF37;}
+.dds-note-box{background:#fff8e8;border:1px solid #e8d8a8;border-radius:14px;padding:22px 28px;margin-bottom:35px;}
+.dds-note-box p{font-size:13px;color:#5a4a20;margin:0 0 8px;line-height:1.7;}
+.dds-note-box p:last-child{margin:0;}
+.dds-quote{background:#1a2e22;border-radius:20px;padding:40px;text-align:center;margin-bottom:35px;}
+.dds-quote p{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:#fff;margin:0;line-height:1.5;}
+.dds-quote span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#D4AF37;margin-top:15px;}
+.dds-cta-block{background:#1a2e22;border-radius:20px;padding:50px 40px;text-align:center;margin-bottom:35px;}
+.dds-cta-block h2{font-family:'Cormorant Garamond',serif;font-size:36px;color:#fff;margin:0 0 10px;}
+.dds-cta-block p{font-size:14px;color:rgba(255,255,255,.6);margin:0 0 30px;}
+.dds-btn{display:inline-block;background:#D4AF37;color:#203227;font-weight:700;font-size:15px;padding:16px 40px;border-radius:50px;text-decoration:none;letter-spacing:0.5px;}
+.dds-footer-block{text-align:center;padding:30px 20px;font-size:13px;color:#7a8a80;line-height:2;}
+.dds-footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#203227;margin-bottom:8px;}
+@media(max-width:600px){
+  .dds-hero{padding:40px 25px;}
+  .dds-hero h1{font-size:36px;}
+  .dds-inc-list,.dds-provides-list{grid-template-columns:1fr;}
+  .dds-division-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
