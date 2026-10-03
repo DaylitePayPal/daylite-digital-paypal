@@ -24,7 +24,7 @@ Daylite Digital is a digital business solution developed by Southern Cross Stars
 | What PayPal's **final notice said**: the permanent deactivation cited unusual activity | **Stated** in the notice |
 | The final notice named the Windhoek login, or Namibia, as the reason | **Not recorded here.** This account of the final notice records only that it cited unusual activity |
 | The account was deactivated *because* the login came from Namibia | **Not established.** The evidence does not show that Namibia itself caused the deactivation, and no causal link is claimed here |
-| Why PayPal made its decision internally | **Unknown** |
+| Why PayPal made its decision internally | **Ref: PP-L-801185317640** |
 
 This case study deliberately does **not** claim that the account was closed because of the founder's location. It records that a login location was raised as an issue and that the written reason for closure was unusual activity, and leaves the relationship between the two open.
 
