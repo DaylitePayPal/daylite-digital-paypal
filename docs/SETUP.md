@@ -51,9 +51,10 @@ The offline checks used Node v22.22.2 and npm 10.9.7 in an environment with no a
 
 ## Troubleshooting
 
-| Symptom                           | Likely cause                                                                   |
-| --------------------------------- | ------------------------------------------------------------------------------ |
-| Banner: "Server setup incomplete" | Missing `.env` values                                                          |
-| `AI_UNAVAILABLE`                  | Bad key, wrong `GEMINI_MODEL`, or quota                                        |
-| `PAYPAL_AUTH_FAILED`              | Wrong Sandbox Client ID/secret, or live credentials used with the Sandbox host |
-| PayPal buttons missing            | Blocked SDK script or browser extension; check the console and CSP             |
+| Symptom                           | Likely cause                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------- |
+| Banner: "Server setup incomplete" | Missing `.env` values                                                                       |
+| `AI_UNAVAILABLE`                  | Bad key, wrong `GEMINI_MODEL`, or quota                                                     |
+| `PAYPAL_AUTH_FAILED`              | Wrong Sandbox Client ID/secret, or live credentials used with the Sandbox host              |
+| PayPal buttons missing            | Blocked SDK script or browser extension; check the console and CSP                          |
+| `package-lock.json` missing       | Run `npm install` on a machine with npm registry access, then commit the generated lockfile |
