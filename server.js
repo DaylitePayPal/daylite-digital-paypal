@@ -48,7 +48,7 @@ const ordersController = new OrdersController(paypalClient);
  * The server maps the selected item to a known price.
  */
 const products = {
-  daylite-demo-stay: {
+  "daylite-demo-stay": {
     name: "Daylite Accommodation Demo",
     description: "Demonstration travel accommodation booking",
     amount: "25.00",
@@ -120,7 +120,8 @@ app.post("/api/orders", async (req, res) => {
             }
           }
         ]
-      }
+      },
+      prefer: "return=minimal"
     });
 
     const order = response.result;
@@ -186,8 +187,10 @@ app.post("/api/orders/:orderId/capture", async (req, res) => {
 
 /*
  * Serve the existing Daylite Digital frontend.
+ *
+ * Express 5 catch-all route.
  */
-app.get("*", (req, res) => {
+app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
