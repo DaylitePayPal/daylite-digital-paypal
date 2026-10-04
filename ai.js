@@ -5,7 +5,6 @@ const catalog = require('./catalog');
 const { AppError } = require('./errors');
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-
 const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
 
 const MAX_QUERY = 500;
@@ -67,10 +66,7 @@ function badResponse() {
 
 /**
  * Gemini structured-output schema.
- *
- * The model may only return catalogue experience IDs and a reason.
- * Commercial fields such as price, currency and availability are deliberately
- * excluded from the model output and remain server-authoritative.
+ * The model may only name catalogue IDs and give a reason.
  */
 function buildResponseSchema() {
   return {
@@ -100,10 +96,7 @@ function buildResponseSchema() {
 
 /**
  * System prompt.
- *
- * Catalogue descriptions are sent to Gemini.
- * Prices, currencies, availability and reservation information are never
- * provided to the model.
+ * Catalogue descriptions only: no prices are ever sent to Gemini.
  */
 function buildSystemInstruction() {
   const items = catalog.CATALOG.map((e) => ({
@@ -149,10 +142,10 @@ function cleanReason(value) {
 }
 
 /**
- * Turns the model's JSON text into catalogue-authoritative recommendations.
+ * Turns Gemini's JSON text into catalogue-authoritative recommendations.
  *
  * Only experienceId and a sanitised reason are taken from Gemini.
- * Every other field comes from the server catalogue.
+ * Name, location, description, price and currency come from the server catalogue.
  */
 function validateModelOutput(text) {
   let parsed;
@@ -240,12 +233,6 @@ async function recommend(query, options = {}) {
 
   const apiKey = opts.apiKey;
 
-  /*
-   * Priority:
-   * 1. Explicit model supplied by the server/caller.
-   * 2. GEMINI_MODEL environment variable.
-   * 3. Current stable Google Gemini model.
-   */
   const model =
     typeof opts.model === 'string' && opts.model.trim()
       ? opts.model.trim()
@@ -303,12 +290,10 @@ async function recommend(query, options = {}) {
   try {
     response = await fetchImpl(url, {
       method: 'POST',
-
       headers: {
         'Content-Type': 'application/json',
         'x-goog-api-key': apiKey,
       },
-
       body: JSON.stringify(body),
     });
   } catch (_) {
@@ -316,7 +301,7 @@ async function recommend(query, options = {}) {
   }
 
   if (!response || !response.ok) {
-    // Do not expose upstream Gemini details to the browser.
+    // Upstream Gemini details are deliberately not exposed.
     throw unavailable(response && response.status);
   }
 
