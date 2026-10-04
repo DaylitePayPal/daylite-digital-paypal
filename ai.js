@@ -154,8 +154,7 @@ async function recommend(query, options = {}) {
     generationConfig: {
       temperature: 0.2,
       maxOutputTokens: 2048,
-      responseMimeType: 'application/json',
-      responseSchema: buildResponseSchema()
+      responseMimeType: 'application/json'
     }
   };
 
@@ -265,30 +264,3 @@ module.exports = {
   AppError
 };
 ```
-
-### Important
-
-Your **`.env` stays separate** and contains your local credentials.
-
-Your **`ai.js` contains JavaScript only**.
-
-So GitHub should show:
-
-```text
-ai.js
-├── const catalog = require('./catalog');
-├── Gemini API logic
-├── response schema
-└── recommend()
-```
-
-**NOT**:
-
-```text
-ai.js
-├── GEMINI_API_KEY=...
-├── PAYPAL_CLIENT_ID=...
-└── PORT=3000
-```
-
-Paste the code above into the GitHub `ai.js` editor, then commit that `ai.js` change. **Do not put the `.env` contents into GitHub.**
