@@ -1,4 +1,3 @@
-```javascript
 'use strict';
 
 const catalog = require('./catalog');
@@ -112,7 +111,10 @@ function buildPrompt() {
 
 async function recommend(query, options = {}) {
   const apiKey = options.apiKey || process.env.GEMINI_API_KEY;
-  const model = options.model || process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
+  const model =
+    options.model ||
+    process.env.GEMINI_MODEL ||
+    'gemini-3.1-flash-lite';
 
   if (!apiKey) {
     throw new AppError(
@@ -180,7 +182,11 @@ async function recommend(query, options = {}) {
   if (!response.ok) {
     const errorText = await response.text().catch(() => '');
 
-    console.error('Gemini API error:', response.status, errorText);
+    console.error(
+      'Gemini API error:',
+      response.status,
+      errorText
+    );
 
     throw new AppError(
       'The AI assistant is temporarily unavailable. Please try again.',
@@ -220,7 +226,11 @@ async function recommend(query, options = {}) {
   try {
     parsed = JSON.parse(text);
   } catch (error) {
-    console.error('Gemini JSON parse error:', error, text);
+    console.error(
+      'Gemini JSON parse error:',
+      error,
+      text
+    );
 
     throw new AppError(
       'The AI assistant returned an invalid recommendation format.',
@@ -249,7 +259,9 @@ async function recommend(query, options = {}) {
         pricePerTraveller: source.pricePerTraveller,
         currency: source.currency,
         demonstration: source.demonstration,
-        reason: item.reason || 'This experience matches your request.'
+        reason:
+          item.reason ||
+          'This experience matches your request.'
       };
     });
 
@@ -263,4 +275,3 @@ module.exports = {
   recommend,
   AppError
 };
-```
